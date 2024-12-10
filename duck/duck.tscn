@@ -1,0 +1,119 @@
+[gd_scene load_steps=20 format=3 uid="uid://bs5xfvh8l8kii"]
+
+[ext_resource type="Shader" path="res://duck/duck.gdshader" id="1_7rwdv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7b1nl"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q46oc"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="TorusMesh" id="TorusMesh_x7oto"]
+material = SubResource("ShaderMaterial_q46oc")
+inner_radius = 0.55
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s387c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5st4"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="SphereMesh" id="SphereMesh_a32wx"]
+
+[sub_resource type="Shader" id="Shader_syfk0"]
+code = "shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the material.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpe6u"]
+render_priority = 0
+shader = SubResource("Shader_syfk0")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mpl1j"]
+albedo_color = Color(0.890431, 0.541472, 0.248337, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nhkqq"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7rrfy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gnxfu"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_wcmhl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j3tx"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="SphereMesh" id="SphereMesh_fd5eq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhrse"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkxs4"]
+render_priority = 0
+shader = ExtResource("1_7rwdv")
+
+[sub_resource type="SphereMesh" id="SphereMesh_8jr8t"]
+
+[node name="Frank the Duck" type="Node3D"]
+transform = Transform3D(3.24511, 0, 0, 0, 3.24511, 0, 0, 0, 3.24511, 0, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_7b1nl")
+mesh = SubResource("TorusMesh_x7oto")
+surface_material_override/0 = SubResource("ShaderMaterial_s387c")
+
+[node name="Head" type="MeshInstance3D" parent="Seat"]
+transform = Transform3D(0.752245, 0, 0, 0, 0.752245, 0, 0, 0, 0.752245, 0.944792, 0.375594, 0)
+material_override = SubResource("ShaderMaterial_a5st4")
+mesh = SubResource("SphereMesh_a32wx")
+
+[node name="Bill" type="MeshInstance3D" parent="Seat/Head"]
+transform = Transform3D(0.617654, -0.0169207, 0, 0.038827, 0.269171, 0, 0, 0, 0.456716, 0.445037, -0.116936, 0)
+material_override = SubResource("ShaderMaterial_vpe6u")
+material_overlay = SubResource("ORMMaterial3D_mpl1j")
+mesh = SubResource("SphereMesh_nhkqq")
+
+[node name="RightEye" type="MeshInstance3D" parent="Seat/Head"]
+transform = Transform3D(0.0764015, 0, 0, 0, 0.148574, 0, 0, 0, 0.0715513, 0.0866748, 0.100773, 0.473842)
+material_overlay = SubResource("ORMMaterial3D_7rrfy")
+mesh = SubResource("SphereMesh_gnxfu")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Seat/Head"]
+transform = Transform3D(0.101565, 0, 0, 0, 0.197507, 0, 0, 0, 0.0951171, 0.0985323, 0.0787081, -0.455891)
+material_overlay = SubResource("ORMMaterial3D_wcmhl")
+mesh = SubResource("SphereMesh_gnxfu")
+skeleton = NodePath("../../..")
+
+[node name="RightWing" type="MeshInstance3D" parent="Seat"]
+transform = Transform3D(0.822628, -0.0625022, 0.0245493, 0.131709, 0.394626, 0, -0.085852, 0.00652292, 0.23523, -0.00320101, 0, 0.969054)
+material_override = SubResource("ShaderMaterial_7j3tx")
+mesh = SubResource("SphereMesh_fd5eq")
+
+[node name="LeftWing" type="MeshInstance3D" parent="Seat"]
+transform = Transform3D(0.821915, -0.062448, -0.0264288, 0.131709, 0.394626, 0, 0.092425, -0.00702233, 0.235026, -0.00320101, -0.028183, -0.979853)
+material_override = SubResource("ShaderMaterial_bhrse")
+mesh = SubResource("SphereMesh_fd5eq")
+skeleton = NodePath("../..")
+
+[node name="Tail" type="MeshInstance3D" parent="Seat"]
+transform = Transform3D(0.318521, 0.273693, 0, -0.554822, 0.157126, 0, 0, 0, 0.963918, -0.898315, 0.229828, 0.0270996)
+material_override = SubResource("ShaderMaterial_xkxs4")
+mesh = SubResource("SphereMesh_8jr8t")

@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://ctcrxejodqljs"]
+
+[ext_resource type="PackedScene" uid="uid://ctw3jo550ai3i" path="res://Scenes/WaterPlane.tscn" id="1_u5wyk"]
+[ext_resource type="PackedScene" uid="uid://2lwwt60hikx1" path="res://duck/yellow_frank.tscn" id="2_vpdhf"]
+[ext_resource type="Script" path="res://duck/duck.gd" id="3_xn3kl"]
+[ext_resource type="Shader" path="res://duck/duck.gdshader" id="5_xorgy"]
+[ext_resource type="PackedScene" uid="uid://cl0a2r24qm8wu" path="res://Scenes/lawlorhead_rainbow.glb" id="6_80jba"]
+[ext_resource type="PackedScene" uid="uid://b0qijxlpypc5y" path="res://Resources/lawlorhead_10k.glb" id="6_swkmg"]
+[ext_resource type="PackedScene" uid="uid://bs5xfvh8l8kii" path="res://duck/duck.tscn" id="8_ffvyh"]
+[ext_resource type="PackedScene" uid="uid://8tvr7b0a5hgs" path="res://Scenes/Island.tscn" id="9_5jir1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gxk80"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jmq6k"]
+noise = SubResource("FastNoiseLite_gxk80")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qun3n"]
+sky_top_color = Color(0.707329, 0.31721, 0.0751874, 1)
+sky_horizon_color = Color(0.434996, 0.00203689, 0.974638, 1)
+sky_cover = SubResource("NoiseTexture2D_jmq6k")
+sky_cover_modulate = Color(0.297706, 0.297706, 0.297706, 1)
+ground_bottom_color = Color(0, 0.419608, 0.619608, 1)
+ground_horizon_color = Color(0.585601, 0.251298, 1, 1)
+ground_curve = 0.08
+
+[sub_resource type="Sky" id="Sky_v5jyj"]
+sky_material = SubResource("ProceduralSkyMaterial_qun3n")
+
+[sub_resource type="Environment" id="Environment_mg23f"]
+background_mode = 2
+background_color = Color(0.518153, 0.0937431, 0.954061, 1)
+sky = SubResource("Sky_v5jyj")
+sky_custom_fov = 107.5
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.21
+glow_strength = 1.75
+glow_mix = 0.069
+glow_blend_mode = 4
+glow_hdr_scale = 1.14
+glow_hdr_luminance_cap = 5.25
+adjustment_enabled = true
+adjustment_contrast = 1.13
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2an5l"]
+render_priority = 0
+shader = ExtResource("5_xorgy")
+
+[node name="Map" type="Node3D"]
+script = ExtResource("3_xn3kl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 8.57873e-08, 1.68308e-08, 0, -0.192522, 0.981293, 8.74228e-08, 0.981293, 0.192522, 0, 20, 0)
+light_color = Color(0.791359, 0.674404, 0.650852, 1)
+light_energy = 6.0
+light_indirect_energy = 4.63
+light_volumetric_fog_energy = 9.734
+directional_shadow_mode = 0
+directional_shadow_max_distance = 511.6
+directional_shadow_pancake_size = 189.9
+script = ExtResource("3_xn3kl")
+
+[node name="WaterPlane" parent="." instance=ExtResource("1_u5wyk")]
+
+[node name="lawlorhead_10k2" parent="." instance=ExtResource("6_swkmg")]
+transform = Transform3D(12.7792, 85.8431, 49.6755, 99.0976, -13.0944, -2.86515, 4.04516, 49.5934, -86.7418, 38.4271, -9.98667, 78.239)
+
+[node name="lawlorhead_10k3" parent="." instance=ExtResource("6_swkmg")]
+transform = Transform3D(1.91688, 12.8765, 7.45133, 14.8646, -1.96415, -0.429772, 0.606774, 7.43901, -13.0113, -21.8868, -1.58894, -6.25917)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mg23f")
+
+[node name="lawlorhead_rainbow" parent="." instance=ExtResource("6_80jba")]
+transform = Transform3D(120.391, -71.1063, -105.237, 127.008, 67.4018, 99.7547, 1.56462e-05, -145.003, 97.9751, -315.877, -0.116191, 235.105)
+
+[node name="lawlorhead_10k" parent="lawlorhead_rainbow" index="0"]
+transform = Transform3D(1.42965e-07, -1.96609e-08, -1, 1.19209e-07, 1, 2.31205e-07, 1, 0, 2.9162e-07, 0.919211, 0.22335, -1.32125)
+surface_material_override/0 = SubResource("ShaderMaterial_2an5l")
+
+[node name="lawlorhead_rainbow2" parent="." instance=ExtResource("6_80jba")]
+transform = Transform3D(13.759, -8.12643, -12.0271, 14.5152, 7.70307, 11.4005, 1.78814e-06, -16.5718, 11.1972, -8.58547, -0.116191, 30.1647)
+
+[node name="lawlorhead_10k" parent="lawlorhead_rainbow2" index="0"]
+transform = Transform3D(1.12997e-07, -4.92181e-08, -1, 1.19209e-07, 1, 2.46549e-07, 1, -2.98023e-08, 2.91724e-07, 0.926404, 0.227167, -1.31561)
+surface_material_override/0 = SubResource("ShaderMaterial_2an5l")
+
+[node name="RainbowDuck" parent="." instance=ExtResource("8_ffvyh")]
+transform = Transform3D(49.5967, -6.29641, 0.720485, 4.62655, 32.0875, -38.0656, 4.33115, 37.8252, 32.4113, 52.6176, 8.94583, -94.708)
+
+[node name="Volcano1" parent="." instance=ExtResource("9_5jir1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4238, 2.46943, 14.4536)
+
+[node name="Volcano2" parent="." instance=ExtResource("9_5jir1")]
+transform = Transform3D(2.76524, 0.883723, 9.56935, -3.04416, 9.52539, 0, -9.11518, -2.91306, 2.90301, -112.89, 18.8641, -64.7413)
+
+[node name="Movement" type="Node3D" parent="."]
+script = ExtResource("3_xn3kl")
+
+[node name="Frank the Duck" parent="Movement" instance=ExtResource("2_vpdhf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0221458, 0.151474, -0.0147613)
+
+[node name="Camera3D" type="Camera3D" parent="Movement"]
+transform = Transform3D(0.00934114, 0.323934, -0.946033, -0.00330245, 0.94608, 0.323917, 0.999951, 9.84746e-05, 0.00990724, -0.5, 0.5, -0.01)
+
+[editable path="lawlorhead_rainbow"]
+[editable path="lawlorhead_rainbow2"]

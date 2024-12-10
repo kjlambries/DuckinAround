@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7q41hvm8h7dk"]
+
+[ext_resource type="Shader" path="res://pond/ground.gdshader" id="1_bjlsk"]
+[ext_resource type="PackedScene" uid="uid://bs5xfvh8l8kii" path="res://duck/duck.tscn" id="1_yxknb"]
+[ext_resource type="Script" path="res://duck/duck.gd" id="2_adyoc"]
+[ext_resource type="Script" path="res://pond/camera.gd" id="3_d5hwg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eva5e"]
+top_radius = 10.0
+bottom_radius = 10.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uych8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x750b"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_uych8")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pou3d"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_uych8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43cu1"]
+render_priority = 0
+shader = ExtResource("1_bjlsk")
+shader_parameter/albedo = Color(0.332145, 0.78768, 0.969294, 0.443137)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_pou3d")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_x750b")
+
+[node name="Ground" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680542, 0, 0)
+
+[node name="Frank the Duck" parent="." instance=ExtResource("1_yxknb")]
+transform = Transform3D(0.00093398, 0, 0.233679, 0, 0.233681, 0, -0.233679, 0, 0.00093398, 0, 0.117331, 0)
+script = ExtResource("2_adyoc")
+
+[node name="Camera3D" type="Camera3D" parent="Frank the Duck"]
+transform = Transform3D(-0.16611, 0.794825, -4.2016, 0.0313988, 4.20488, 0.794205, 4.27601, 0, -0.169051, -3.45529, 1.8144, -0.049887)
+script = ExtResource("3_d5hwg")
+
+[node name="Pond" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.53073, 0, 0, 0, 0.0683226, 0, 1.20925e-09, 0, 3.38388, 0, -0.0148315, 0)
+mesh = SubResource("CylinderMesh_eva5e")
+surface_material_override/0 = SubResource("ShaderMaterial_43cu1")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+light_energy = 10.738
+light_indirect_energy = 7.995
+light_volumetric_fog_energy = 8.781
+directional_shadow_mode = 0
+directional_shadow_split_3 = 0.787
+directional_shadow_max_distance = 2845.5
+directional_shadow_pancake_size = 130.4

@@ -1,0 +1,241 @@
+[gd_scene load_steps=25 format=3 uid="uid://8tvr7b0a5hgs"]
+
+[ext_resource type="Shader" path="res://Shaders/Lava.gdshader" id="1_pqeic"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8heh7"]
+height = 6.594
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv0mk"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.490196, 0, 0, 1)
+shader_parameter/albedo2 = Color(0.848894, 0.159974, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iup18"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.556863, 0.168627, 0.0431373, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1mrf"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.360784, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bx8yg"]
+material = SubResource("ShaderMaterial_k1mrf")
+height = 4.601
+cap_top = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7luyt"]
+lightmap_size_hint = Vector2i(127, 73)
+top_radius = 0.699
+bottom_radius = 3.997
+height = 6.0
+cap_top = false
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_2ib6g"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.139405, 0.0908207, 0, 1)
+heightmap_scale = -16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7urn"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.490196, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="TorusMesh" id="TorusMesh_gy4p8"]
+material = SubResource("ShaderMaterial_f7urn")
+outer_radius = 0.88
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quj8d"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.360784, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lunxm"]
+material = SubResource("ShaderMaterial_quj8d")
+top_radius = 0.9
+height = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_3tsf2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18jg5"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.490196, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fekal"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.556863, 0.168627, 0.0431373, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwjpg"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.427503, 0.122583, 0.0241176, 1)
+shader_parameter/albedo2 = Color(0.391397, 0, 0.0617746, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f67vg"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.490196, 0, 0, 1)
+shader_parameter/albedo2 = Color(0.847059, 0.160784, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a4c62"]
+radius = 0.2
+height = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smnqj"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458824, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3q1nx"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458824, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2nmu"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458824, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ha6g"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458824, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3jnl"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458824, 0, 0, 1)
+shader_parameter/albedo2 = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qcvp"]
+render_priority = 0
+shader = ExtResource("1_pqeic")
+shader_parameter/albedo = Color(0.458632, 1.65449e-06, 1.10701e-06, 1)
+shader_parameter/albedo2 = null
+
+[node name="Node3D" type="Node3D"]
+
+[node name="LongL1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.922698, 0.428823, 0, -0.488049, 0.810726, 0, -0.0525738, 2.30065)
+mesh = SubResource("SphereMesh_8heh7")
+surface_material_override/0 = SubResource("ShaderMaterial_xv0mk")
+
+[node name="LongL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.318005, -0.463611, 0.760503, -0.00252541, 0.903554, 0.430853, -0.979914, 0.148124, -0.247911, 2.15536, 0.00911799, -0.821862)
+mesh = SubResource("SphereMesh_8heh7")
+surface_material_override/0 = SubResource("ShaderMaterial_iup18")
+
+[node name="Inside Vol" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_bx8yg")
+
+[node name="Outside Vol" type="MeshInstance3D" parent="Inside Vol"]
+mesh = SubResource("CylinderMesh_7luyt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ORMMaterial3D_2ib6g")
+
+[node name="Top Vol" type="MeshInstance3D" parent="Inside Vol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8096, 0)
+mesh = SubResource("TorusMesh_gy4p8")
+
+[node name="Bottom Vol" type="MeshInstance3D" parent="Inside Vol"]
+mesh = SubResource("CylinderMesh_lunxm")
+skeleton = NodePath("../..")
+
+[node name="SmolL1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8204, 0, 0, 0, 1.99089, -0.241352, 0, 1.1813, 0.406759, 0, 1.9941, -1.29279)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_18jg5")
+
+[node name="SmolL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.710487, 0.590651, 0.203379, 0, 1.99089, -0.241352, -0.4102, 1.02304, 0.352263, -0.634392, 1.99629, -1.11312)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_fekal")
+
+[node name="SupSmolL1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.219712, -0.543892, 0.129458, 0.123948, -1.08935, 0.0700165, -0.0457353, -0.339416, -0.432165, -0.980659, 2.43026, -0.458921)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="SupSmolL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0927732, 0.402767, 0.40391, 0.12994, -0.995469, 0.0710902, -0.216208, -0.42545, 0.21604, 0.66937, 2.43026, -0.856045)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="SupSmolL5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.232577, 0.57404, 0.0300623, 0.12994, -0.995469, 0.0710902, -0.0355072, 0.117074, 0.45707, 1.09652, 2.43026, 0.0753745)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="SupSmolL4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0325149, -0.276408, -0.446566, 0.12994, -0.995469, 0.0710902, 0.233014, 0.516554, -0.101957, -0.445129, 2.43026, 1.00265)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="MidL1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.539807, 0.889565, 0.306303, -5.21541e-08, 1.99089, -0.241352, -0.61779, -0.777274, -0.267639, -0.995453, 1.99444, 0.846304)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="MidL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.130615, 1.39558, 0.354713, 0, 2.3824, -0.21319, -0.809936, 0.22506, 0.0572033, -1.40582, 1.79607, 0.00725687)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_f67vg")
+
+[node name="MidL3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.518084, -1.09608, -0.278589, 1.63512e-09, 2.3824, -0.21319, 0.636118, -0.892698, -0.226896, 1.23748, 1.79115, 0.721606)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_f67vg")
+
+[node name="SupSmolL3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.158869, 0.221993, -0.363124, 0.12994, -0.995469, 0.0710902, 0.173532, 0.54217, 0.279209, 0.51507, 2.43026, 0.988214)
+mesh = SubResource("SphereMesh_3tsf2")
+surface_material_override/0 = SubResource("ShaderMaterial_iwjpg")
+
+[node name="TinyL1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.743053, -0.443544, -0.177289, 0.376155, 0.847252, 0.405327, -0.0231162, -0.470609, 0.896816, 0.65393, 2.65882, 0.683652)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_smnqj")
+
+[node name="TinyL2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.680933, -0.198378, -0.545339, 0.376155, 0.847252, 0.405327, 0.298315, -0.615508, 0.733699, 0.280101, 2.65882, 0.899927)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_3q1nx")
+
+[node name="TinyL3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.79472, 0.319909, -0.00771952, 0.225366, 0.927537, 0.41174, 0.10856, 0.416381, -0.911269, -0.656362, 2.65882, -0.572636)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_a2nmu")
+
+[node name="TinyL4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.518787, -0.136519, 0.644865, 0.201792, 0.997202, 0.374674, -0.496656, 0.547767, -0.52137, 0.304262, 2.61699, -0.918288)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_3ha6g")
+
+[node name="TinyL5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.443838, -0.558449, 0.581624, 0.201792, 0.997202, 0.374674, -0.564637, -0.0825904, 0.591093, 0.985114, 2.61699, -0.133827)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_t3jnl")
+
+[node name="TinyL6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0517425, -0.508997, 0.812832, 0.201792, 0.997202, 0.374674, -0.716331, 0.244148, 0.16426, 0.769198, 2.61699, -0.599831)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_4qcvp")
+
+[node name="TinyL7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.885273, 0.50811, -0.0538932, 0.252341, 1.41243, 0.580427, 0.151283, 0.617388, -1.28352, -0.869382, -1.73317, -3.15247)
+mesh = SubResource("SphereMesh_a4c62")
+surface_material_override/0 = SubResource("ShaderMaterial_4qcvp")

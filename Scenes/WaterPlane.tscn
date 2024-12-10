@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctw3jo550ai3i"]
+
+[ext_resource type="Material" uid="uid://bc6b36fnqcxdf" path="res://WaterPlane.tres" id="1_jy5f5"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_byf7x"]
+lightmap_size_hint = Vector2i(252, 252)
+size = Vector2(50, 50)
+subdivide_width = 2000
+subdivide_depth = 2000
+orientation = 1
+
+[node name="WaterPlane" type="MeshInstance3D"]
+transparency = 0.05
+cast_shadow = 0
+mesh = SubResource("QuadMesh_byf7x")
+surface_material_override/0 = ExtResource("1_jy5f5")
